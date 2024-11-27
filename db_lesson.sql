@@ -175,7 +175,7 @@ FROM people INNER JOIN reports ON people.person_id = reports.person_id AND peopl
 
     /*上のやつだと日報を提出したことのある人のデータまで出てきてしまうので、content = NULLで絞り込みをかける 🟠WHEREを使用する※順番を意識する*/
     ※ 本当にNULLの人のみのデータを抽出できているかを確認するため、一度自分用に3つのカラムで抽出をする。
-    ⭕️SELECT p.person_id, p.name, r.content FROM people p LEFT OUTER JOIN reports r USING (person_id) WHERE r.content IS NULL;
+    ⭕️SELECT p.name FROM people p LEFT OUTER JOIN reports r USING (person_id) WHERE r.content IS NULL;
 
     🟠NULLの絞り込みに注意 IS NULLの形を覚える🟠
 
